@@ -91,8 +91,8 @@ d3.csv("assets/data/data.csv", function(err, csvData) {
   // parse data
   csvData.forEach(function(data) {
     data.poverty = +data.poverty;
-    data.ageMoe = +data.ageMoe;
-    data.incomeMoe = +data.incomeMoe;
+    data.age = +data.age;
+    data.income = +data.income;
     data.healthcare = +data.healthcare;
     data.obesity = +data.obesity;
     data.smokes = +data.smokes;
@@ -144,14 +144,14 @@ d3.csv("assets/data/data.csv", function(err, csvData) {
   var ageLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 40)
-    .attr("value", "ageMoe") // value to grab for event listener
+    .attr("value", "age") // value to grab for event listener
     .classed("inactive", true)
     .text("Age (Median)");
 
   var incomeLabel = labelsGroup.append("text")
     .attr("x", 0)
     .attr("y", 60)
-    .attr("value", "incomeMoe") // value to grab for event listener
+    .attr("value", "income") // value to grab for event listener
     .classed("inactive", true)
     .text("Household Income (Median)");
 
@@ -218,7 +218,7 @@ d3.csv("assets/data/data.csv", function(err, csvData) {
             .classed("active", false)
             .classed("inactive", true);
             break;
-          case "ageMoe":
+          case "age":
             povertyLabel
             .classed("active", false)
             .classed("inactive", true);     
@@ -229,7 +229,7 @@ d3.csv("assets/data/data.csv", function(err, csvData) {
             .classed("active", false)
             .classed("inactive", true);
             break;
-          case "incomeMoe":
+          case "income":
             povertyLabel
             .classed("active", false)
             .classed("inactive", true);            
