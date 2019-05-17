@@ -29,12 +29,13 @@
   fill: #fff;
   text-anchor: middle;
   font-size: 9px;
-  font-weight: 600;
+  font-weight: 600;cursor: pointer;
 }
 
 .stateCircle {
   fill: #89bdd3;
   stroke: #e3e3e3;
+  cursor: pointer;
 }
 
 .chart {

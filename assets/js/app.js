@@ -1,5 +1,5 @@
-var svgWidth = 537.5;
-var svgHeight = 675;
+var svgWidth = 1100;
+var svgHeight = 600;
 var margin = {
   top: 25,
   right: 25,
@@ -63,13 +63,14 @@ d3.csv("assets/data/data.csv").then(function(csvData) {
     .attr("class","stateCircle")
 
 
-    circlesGroup = chartGroup.selectAll("text")
+    circlesGroup = chartGroup.append("g").selectAll("text")
     .data(csvData)
     .enter()
     .append("text")
     .attr("x", d => xLinearScale(d.poverty))
-    .attr("y", d => yLinearScale(d.healthcare)+3)
+    .attr("y", d => yLinearScale(d.healthcare))
     .attr("class", "stateText")
+    .attr("dy",3)
     .text((d)=>d.abbr);
 
   var toolTip = d3.tip()
@@ -82,10 +83,10 @@ d3.csv("assets/data/data.csv").then(function(csvData) {
   circlesGroup.on("click", function(data) {
     toolTip.show(data, this);
   })
-    // onmouseout event
-    // .on("mouseout", function(data, index) {
-    //   toolTip.hide(data);
-    // });
+    // .onmouseout event
+    .on("mouseout", function(data, index) {
+      toolTip.hide(data);
+    });
 
     // Create axes labels
     chartGroup.append("text")
